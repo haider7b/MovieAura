@@ -5,6 +5,7 @@ import { IoSearch } from "react-icons/io5";
 import "./css/navBar_style.css"
 import { useState,useEffect } from "react";
 import  gsap  from 'gsap';
+import{profileImg} from "../utils/index.js"
 export default function NavBar() {
 
     const [searchValue, setSearchValue] = useState("");
@@ -20,16 +21,16 @@ export default function NavBar() {
                     delay:0.2,
                     duration:0.3,
                     padding:mobileInput?"0px 10px":"0px",
-                    backgroundColor:mobileInput?"transparent":"#eee"
+                    backgroundColor:mobileInput?"#eee":"#bbb"
                 }
             )
 
-            if(window.innerWidth<500){
+            if(window.innerWidth<550){
                 gsap.to("#logo",{
                 opacity:mobileInput?0:1,
                 display:mobileInput?"none":"block",
-                delay:0.2,
-                duration:0.3
+                delay:mobileInput?0:0.4,
+                duration:mobileInput?0:0.5,
             })
             }
             
@@ -89,26 +90,26 @@ export default function NavBar() {
     }
 
     return(
-        <nav className="bg-[#2e7df3]">
+        <nav className="">
             <div className="container   ">
                 {/* big screen menu*/}
-                <div className="flex">
-                    <h1 className="logo"
+                <div className="flex justify-between">
+                    <h1 className="logo mr-2.5"
                     id="logo">
                         {webName}
                     </h1>
-                    <ul className="big-menu">
+                    <ul className="big-menu flex items-center justify-between gap-2.5">
                         { navLinks.map((link,ind)=>(
                             <li key={ind+link} className="">
                                 <Link to={"/"+(ind===0?"":link)} title={link+" page"}>
-                                    {link.includes("-")?link.replace("-"," "):link}
+                                    {link.includes("-")?link.replace("-"," ").toUpperCase():link.toUpperCase()}
                                 </Link>
                             </li>
                         ))}
                     </ul>
                 </div>
 
-                <div className="flex">
+                <div className="flex lg:gap-0 gap-6">
                     <div className ="mobileSearch-And-button">
                         <div className="mobile-search">
                             <input 
@@ -162,22 +163,25 @@ export default function NavBar() {
                             </div>
                             <IoSearch/>
                         </div>
-                        <div className="profile">
-                                {/* <img src="" alt="profile"></img> */}
-                                <div style={{color:"black",fontSize:"10px",textAlign:"center"}}> me</div>
+                        <div className="profile-toggle">
+                            <Link to={"/profile"}>
+                                <img src={profileImg} alt="profile"></img> 
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
             {/* mobile menu */}
-            <div className="mobile-menu"
-            id="mobileMenu"
-            >
-                { navLinks.map((link,ind)=>(
-                    <div key={ind+link} className="">
-                        <Link to={"/"+ind===0?"":link} title={link+" page"}>{link.includes("-")?link.replace("-"," "):link}</Link>
-                    </div>
-                ))}
+            <div className="mobile-menu text-white"
+            id="mobileMenu"> 
+                <h1 className="text-2xl font-bold px-2.5 py-5">{webName}</h1>
+                <div className="flex flex-col gap-2.5 px-2.5 py-5 ">
+                    { navLinks.map((link,ind)=>(
+                        <div key={ind+link} className=" font-bold text-xl">
+                            <Link to={"/"+(ind===0?"":link)} title={link+" page"}>{link.includes("-")?link.replace("-"," ").toUpperCase():link.toUpperCase()}</Link>
+                        </div>
+                    ))}
+                </div>
             </div>
         </nav>
     )

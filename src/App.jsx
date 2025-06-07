@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
-import Movies from './pages/movies';
+import Content from './pages/content';
 import { useState, useEffect } from "react";
 import Loader from "./components/loader";
 import NavBar from './components/navBar';
-import TVShows from './pages/TV-shows';
 import Categories  from './pages/categories';
 import Contact from './pages/contact';
+import Footer from './components/footer';
 
 
 
@@ -34,16 +34,15 @@ function App() {
 
 
   return (
-    <div>
+    <div >
       <NavBar/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/tv-shows" element={<TVShows />} />
+        <Route path="/content" element={<Content />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/contact" element={<Contact />} />
-
       </Routes>
+      <Footer/>
     </div>
   );
 }

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+    box-sizing: border-box;
+}
+
 nav {
     display: flex;
     justify-content: center;
@@ -7,6 +11,26 @@ nav {
     align-items: center;
     width: 100%;
     margin: 0;
+    padding: 15px 40px;
+    box-shadow: #999 -1px -11px 20px 3px;
+}
+
+@media (max-width: 1024px) {
+    nav {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    nav {
+        padding: 15px 10px;
+    }
+    
+}
+
+nav .container>* {
+    margin: 0;
+    padding: 0;
 }
 
 nav .container {
@@ -15,7 +39,7 @@ nav .container {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 15px 50px;
+
 }
 
 
@@ -23,7 +47,7 @@ nav .container {
 
 
 /* logo and the links div  */
-nav .container >div> div {
+nav .container>div>div {
     position: relative;
     display: flex;
     justify-content: space-evenly;
@@ -33,12 +57,10 @@ nav .container >div> div {
 
 nav .container .logo {
     font-size: 1.5rem;
-    margin: 0;
-    padding: 0;
     font-weight: bold;
 }
 
-@media (max-width: 1024px  ) {
+@media (max-width: 1024px) {
     nav .container .logo {
         font-size: 1.5rem;
     }
@@ -53,17 +75,6 @@ nav .container .logo {
 }
 
 
-
-
-nav .container ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 10px;
-}
 
 nav .container ul li {
     margin: 0;
@@ -96,42 +107,32 @@ nav .mobile-menu {
     position: fixed;
     z-index: 100;
     width: 200px;
-    padding-top: 50px;
     margin: 0;
 }
 
 nav .mobile-menu div {
-    margin: 0;
-    padding: 5px 15px;
     transition: all 0.3s ease-in-out;
 }
 
-nav .mobile-menu div:hover {
-    background-color: #fff;
-}
-
-nav .mobile-menu div a {
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-nav .mobile-menu div:hover a {
-    color: #2e7df3;
+nav .mobile-menu h1 {
+    border-bottom: 2px solid #fff;
 }
 
 
 
-nav .container .search-And-profile .profile {
+
+
+
+
+
+nav .container .search-And-profile .profile-toggle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    background-color: #ccc;
+    background-color: #bbb;
 }
 
 
@@ -151,7 +152,7 @@ nav .container .mobileSearch-And-button {
     }
 
     nav .container .toggle-menu {
-        background-color: transparent;
+        background-color: #bbb;
         position: relative;
         border: none;
         outline: none;
@@ -160,9 +161,10 @@ nav .container .mobileSearch-And-button {
         flex-direction: column;
         justify-content: space-between;
         margin: 0;
-        width: 25px;
-        padding: 0;
+        width: 45px;
+        padding: 5px 10px;
         gap: 3px;
+        border-radius: 10px;
     }
 
     nav .container .toggle-menu span {
@@ -200,31 +202,31 @@ nav .container .mobile-search input {
     border: none;
     outline: none;
     padding: 0px 10px;
-    border-radius: 5px;
     width: 140px;
     height: 40px;
     font-weight: 700;
     font-size: 1rem;
-    background-color: #eee;
     color: #000;
+    background-color: #eee;
+    border-radius: 10px;
+    border-bottom: 1px #eee solid;
     z-index: 6;
 }
 
 nav .container .mobile-search input {
     width: 1px;
     padding: 0;
-    border-bottom: 1px #eee solid;
-    border-radius: 0;
 }
 
-nav .container  input::placeholder {
-    color: #ccc;
+nav .container input::placeholder {
+    color: #bbb;
 }
 
 @media (max-width:1024px) {
     nav .container .search {
         display: none;
     }
+
     nav .container .mobile-search {
         display: flex;
     }
@@ -233,7 +235,7 @@ nav .container  input::placeholder {
 nav .container .search> :last-child {
     width: 20px;
     height: 20px;
-    color: #ddd;
+    color: #bbb;
     cursor: pointer;
 }
 

@@ -1,8 +1,8 @@
 
-
-
 export default function Contact() {
     return(
-        <> contact us page</>
+        <section className="section-padding">
+            
+        </section>
     )
 }
