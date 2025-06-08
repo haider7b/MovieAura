@@ -1,40 +1,16 @@
 
-import{webName,moviesNames,navLinks} from "../consts/index.js"
+import{webName,navLinks} from "../consts/index.js"
 import { Link } from 'react-router-dom';
-import { IoSearch } from "react-icons/io5";
 import "./css/navBar_style.css"
 import { useState,useEffect } from "react";
 import  gsap  from 'gsap';
 import{profileImg} from "../utils/index.js"
 export default function NavBar() {
 
-    const [searchValue, setSearchValue] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
-    const [mobileInput,setMobileInput]=useState(false);
     const [mobileMenu,setMobileMenu]=useState(false);
 
 
-    useEffect(()=>{
-            gsap.to("#mobileInput",
-                {
-                    width:mobileInput?"140px":"1px",
-                    delay:0.2,
-                    duration:0.3,
-                    padding:mobileInput?"0px 10px":"0px",
-                    backgroundColor:mobileInput?"#eee":"#bbb"
-                }
-            )
-
-            if(window.innerWidth<550){
-                gsap.to("#logo",{
-                opacity:mobileInput?0:1,
-                display:mobileInput?"none":"block",
-                delay:mobileInput?0:0.4,
-                duration:mobileInput?0:0.5,
-            })
-            }
-            
-    },[mobileInput])
+    
 
 
 
@@ -73,21 +49,7 @@ export default function NavBar() {
         })
     },[mobileMenu])
 
-    function handleSearch(value){
-        setSearchValue(value);
-        if(value.replace(" ","").length===0){
-            setSearchResults([]);
-            return;
-        }else{
-            let res=[]
-            for(let i=0;i<moviesNames.length;i++){
-                if(moviesNames[i].toLowerCase().includes(value.toLowerCase())){
-                    res.push(moviesNames[i]);
-                }
-            }
-            setSearchResults(res);
-        }
-    }
+    
 
     return(
         <nav className="">
@@ -110,59 +72,21 @@ export default function NavBar() {
                 </div>
 
                 <div className="flex lg:gap-0 gap-6">
-                    <div className ="mobileSearch-And-button">
-                        <div className="mobile-search">
-                            <input 
-                                id="mobileInput"
-                                type="text" 
-                                placeholder="Search"
-                                value={searchValue}
-                                onChange={(e)=>handleSearch(e.target.value)}
-                            ></input>
-                            <div  className="results" 
-                                style={{display:searchResults.length===0?"none":"flex",
-                                height:searchResults.length===0?"0px":"200px"}}>
-                                {searchResults.map((result,ind)=>(
-                                    <div>
-                                        <a key={ind}>{result}</a>
-                                    </div>
-                                ))}
-                            </div>
-                            <button className="toggle-search"
-                                onClick={() => setMobileInput(!mobileInput)}
-                                >
-                                <IoSearch/>
-                            </button>
-                        </div>
+                    
+                        
                         <button className="toggle-menu"
                         onClick={() => setMobileMenu(!mobileMenu)}>
                             <span className="s1"></span>
                             <span className="s2"></span>
                             <span className="s3"></span>
                         </button>
-                    </div>
+                    
 
                     {/*  */}
-                    <div className="search-And-profile">
-                        <div className="search">
-                            <input 
-                                type="text" 
-                                placeholder="Search"
-                                value={searchValue}
-                                onChange={(e)=>handleSearch(e.target.value)}
-                            ></input>
-                            <div  className="results" 
-                                style={{display:searchResults.length===0?"none":"flex",
-                                height:searchResults.length===0?"0px":"200px"}}
-                            >
-                                {searchResults.map((result,ind)=>(
-                                    <div>
-                                        <a key={ind}>{result}</a>
-                                    </div>
-                                ))}
-                            </div>
-                            <IoSearch/>
-                        </div>
+                        
+                            
+                           
+                        
                         <div className="profile-toggle">
                             <Link to={"/profile"}>
                                 <img src={profileImg} alt="profile"></img> 
@@ -170,7 +94,6 @@ export default function NavBar() {
                         </div>
                     </div>
                 </div>
-            </div>
             {/* mobile menu */}
             <div className="mobile-menu text-white"
             id="mobileMenu"> 

@@ -1,14 +1,14 @@
 import HomeSlider from "../../components/HomeSlider3";
-import {movies} from "../../consts/index.js"
+
 const title=["top movies","most popular movies","upcoming movies","most watched movies"]
 
-export default function Movies (){
+export default function Movies ({movies}){
     return(
-        <div id="content-0">
+        <div id="content-0" className="w-screen">
             {
                 title.map((title,i)=>(
                     <div key={title} className="w-full  my-5 lg:my-10">
-                        <h1 className="text-xl lg:text-3xl font-bold my-7">{title}</h1>
+                        <h1 className="text-xl lg:text-3xl font-bold my-7">{title.toUpperCase()}</h1>
                         <div className="h-[350px] lg:h-[400px]">
                             <HomeSlider 
                             list={movies}

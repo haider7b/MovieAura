@@ -125,7 +125,7 @@ nav .mobile-menu h1 {
 
 
 
-nav .container .search-And-profile .profile-toggle {
+nav .container  .profile-toggle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -138,18 +138,10 @@ nav .container .search-And-profile .profile-toggle {
 
 
 
-nav .container .mobileSearch-And-button {
-    display: none;
-}
+
 
 
 @media (max-width: 1024px) {
-    nav .container .mobileSearch-And-button {
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        gap: 25px;
-    }
 
     nav .container .toggle-menu {
         background-color: #bbb;
@@ -186,100 +178,22 @@ nav .container .mobileSearch-And-button {
     }
 }
 
-nav .container .search,
-nav .container .mobile-search {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-
-
-nav .container .search input,
-nav .container .mobile-search input {
-    border: none;
-    outline: none;
-    padding: 0px 10px;
-    width: 140px;
-    height: 40px;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #000;
-    background-color: #eee;
-    border-radius: 10px;
-    border-bottom: 1px #eee solid;
-    z-index: 6;
-}
-
-nav .container .mobile-search input {
-    width: 1px;
-    padding: 0;
-}
-
-nav .container input::placeholder {
-    color: #bbb;
-}
-
-@media (max-width:1024px) {
-    nav .container .search {
-        display: none;
-    }
-
-    nav .container .mobile-search {
-        display: flex;
-    }
-}
-
-nav .container .search> :last-child {
-    width: 20px;
-    height: 20px;
-    color: #bbb;
-    cursor: pointer;
-}
 
 
 
 
 
-nav .container .results {
-    flex-direction: column;
-    position: absolute;
-    top: 90%;
-    left: 0;
-    width: 140px;
-    padding: 20px 10px 10px;
-    background-color: #fff;
-    border-radius: 0px 0px 5px 5px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 200px;
-    z-index: 5;
-    gap: 10px;
-    transition: all 0.3s ease-in-out;
-}
 
-nav .container .results>div {
-    cursor: pointer;
-    padding: 5px 0px 5px 10px;
-    width: 100%;
-}
 
-nav .container .results>div:hover {
-    background-color: #ccc;
-}
 
-nav .container .mobileSearch-And-button .toggle-search {
-    background-color: transparent;
-    border: none;
-    outline: none;
 
-}
 
-nav .container .mobileSearch-And-button .toggle-search>* {
-    width: 20px;
-    height: 20px;
-    color: #999;
-    cursor: pointer;
-}
+
+
+
+
+
+
+
+
+

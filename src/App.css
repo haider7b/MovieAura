@@ -9,6 +9,7 @@ body {
 .section-padding {
   padding: 4rem 8rem;
 }
+
 @media (max-width: 1024px) {
   .section-padding {
     padding: 4rem 4rem;
@@ -19,4 +20,11 @@ body {
   .section-padding {
     padding: 4rem 1rem;
   }
+}
+
+
+.categories-search input::-webkit-search-cancel-button {
+  color: #000;
+  cursor: pointer;
+
 }
