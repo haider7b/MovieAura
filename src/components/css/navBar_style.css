@@ -103,7 +103,9 @@ nav .mobile-menu {
     display: none;
     top: 0%;
     height: 100%;
-    background-color: #2e7df3;
+    background-color: #fff;
+    color: #000;
+    box-shadow: #999 -11px -1px 20px 3px;
     position: fixed;
     z-index: 100;
     width: 200px;
@@ -115,7 +117,7 @@ nav .mobile-menu div {
 }
 
 nav .mobile-menu h1 {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #000;
 }
 
 

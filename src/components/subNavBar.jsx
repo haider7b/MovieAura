@@ -1,11 +1,11 @@
 import  gsap  from 'gsap';
 
-export default function SubNavBar({navLinks}){
+export default function SubNavBar({navLinks,contentId}){
 
     function handleLinksClick(ind){
-        console.log("clicked");
+    
         for(let i=0;i<navLinks.length;i++){
-            gsap.to(`#link-${i}`,{
+            gsap.to(`#${navLinks[i]}-${i}`,{
                         duration:0.5,
                         color:i===ind?"#000":"#999",
                         borderBottom:i===ind?"2px solid #000":"2px solid #fff"
@@ -13,7 +13,7 @@ export default function SubNavBar({navLinks}){
         }
         
         for(let i=0;i<navLinks.length;i++){
-            gsap.to(`#content-${i}`,{
+            gsap.to(`#${contentId}-${i}`,{
                 display:i===ind?"block":"none",
                 x:ind===i?0:`${-100}%`,
                 duration:0.8,
@@ -31,9 +31,12 @@ export default function SubNavBar({navLinks}){
                 {navLinks.map((link,ind)=>(
                     <div
                     key={link} 
-                    id={`link-${ind}`}
+                    id={`${navLinks[ind]}-${ind}`}
                     role="button"
-                    className={`hover:text-[#000] text-[${ind===0?"#000":"#999"}] py-3.5 border-[${ind===0?"#000":"#fff"}] hover:border-[#000] 
+                    className={`hover:text-[#000]
+                    ${ind===0?"text-[#000]":"text-[#999]"}
+                    ${ind===0?"border-b-2 border-[#000]":"border-b-2 border-[#fff]"}
+                    py-3.5 font-semibold hover:border-[#000] 
                     border-b-2 cursor-pointer`}
                     onClick={()=>{
                         handleLinksClick(ind)

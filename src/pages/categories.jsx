@@ -27,7 +27,7 @@ export default function Categories() {
         }
 
     return(
-        <section className="section-padding"> 
+        <section className="section-padding min-h-[80vh]"> 
             <div>
                 <div className="categories-search relative">
                     <input
@@ -63,7 +63,7 @@ export default function Categories() {
                 <div  
                 className="w-full lg:flex-col flex-row my-14 flex gap-10 flex-wrap" 
                 >
-                    {searchResults.map((result,ind)=>(
+                    {searchResults.length!==0?searchResults.map((result,ind)=>(
                         <div key={ind+result.title} 
                         className="lg:w-full w-[200px]  lg:h-[350px] cursor-pointer flex items-center 
                         justify-between overflow-hidden rounded-[15px] hover:bg-[#efefef] 
@@ -101,7 +101,9 @@ export default function Categories() {
                                 <img className="max-h-full rounded-[15px]" src={result.poster} alt={result.title} />
                             </div>
                         </div>
-                    ))}
+                    )):(
+                        <h1 className="text-2xl text-center w-full lg:text-4xl font-bold my-7">No Search Results Found!</h1>
+                    )}
                 </div>
             </div>
         </section>

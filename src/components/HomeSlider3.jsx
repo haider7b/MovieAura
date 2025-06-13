@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import PropTypes from 'prop-types';
+import Options from "./options";
 
 /**
  * HomeSlider3 - An improved version of the movie slider component
@@ -131,7 +132,13 @@ export default function HomeSlider3({
                             minWidth: getCardWidth(),
                             maxWidth: getCardWidth()
                         }}
-                    >
+                    >   
+                        
+                        <Options 
+                        move={movieItem}
+                        Id={`homeSlider-${movieItem.title.slice(0,3).toUpperCase()}-${index}-${delay}`}
+                        />
+                    
                         <img
                             src={movieItem.poster}
                             alt={movieItem.title}

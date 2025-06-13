@@ -3,7 +3,7 @@ import {heroImg,poster} from "../utils/index.js"
 
 
 export const webName="MovieAura";
-export const navLinks=["home","content","categories","contact"];
+export const navLinks=["home","content","categories","subscribe"];
 export const categories=["Action","Comedy","Drama","Horror","Romance"];
 export const genres=["Action","Adventure","Animation","Comedy","Drama","Fantasy","Horror","Mystery","Romance","Sci-Fi","Thriller","War","Western"];
 
@@ -122,4 +122,75 @@ export const movies =[
         "url":"https://www.imdb.com/The%20Lord%20of%20the%20Rings%3A%20The%20Hobbit%3A%20The%20Battle%20of%20the%20Five%20Armies/tt0903624/",
         "description":"Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."
     },
+]
+
+
+export const plans=[
+    {
+        "plan":"free",
+        "price":"0$ USD/month",
+        "movies":{
+            "content":"10 ber day",
+            "ads":"true",
+            "download":"false" 
+        },
+        "tvShows":{
+            "content":"10 ber day",
+            "ads":"true",
+            "download":"false"
+        }
+    },
+    {
+        "plan":"premium",
+        "price":"10$ USD/month",
+        "movies":{
+            "content":"unlimited",
+            "ads":"false",
+            "download":"true"
+        },
+        "tvShows":{
+            "content":"unlimited",
+            "ads":"false",
+            "download":"true"
+        }
+    },{
+        "plan":"vip",
+        "price":"20$ USD/month",
+        "movies":{
+            "content":"unlimited",
+            "ads":"false",
+            "download":"true"
+        },
+        "tvShows":{
+            "content":"unlimited",
+            "ads":"false",
+            "download":"true"
+        }
+    }
+]
+
+
+
+export const latestWatched=[
+    movies[0],
+    movies[1],
+    movies[2],
+    movies[3],
+    movies[4],
+]
+
+export const favorites=[
+    movies[5],
+    movies[6],
+    movies[7],
+    movies[8],
+    movies[9],
+]
+
+export const watchLater=[
+    movies[0],
+    movies[1],
+    movies[4],
+    movies[7],
+    movies[9],
 ]

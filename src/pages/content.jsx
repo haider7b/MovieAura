@@ -1,8 +1,6 @@
 import { genres ,movies} from "../consts/index.js";
 import SubNavBar from "../components/subNavBar.jsx";
-import Movies from "./contentComponents/movies.jsx";
-import TvShows from "./contentComponents/tv-shows.jsx";
-import RecentlyAdded from "./contentComponents/recently-added.jsx";
+import ContentComponent from "../components/contentComponent.jsx";
 import { useState ,useEffect} from "react";
 import  gsap  from 'gsap';
 
@@ -43,7 +41,10 @@ export default function Content() {
     return(
         <section className="section-padding">
             <div>
-                <SubNavBar navLinks={["movies","tv-shows","recently-added"]}/>
+                <SubNavBar 
+                navLinks={["movies","tv-shows","recently-added"]}
+                contentId={"content-page"}//same id inside {Movies , TvShows , RecentlyAdded}
+                />
                 <div className="flex  items-center gap-4 flex-wrap">
                     {genres.map((genre) => (
                         <div 
@@ -71,9 +72,22 @@ export default function Content() {
                     className="flex items-center"
                     id="content"
                     > 
-                        <Movies id={"movies"} movies={moviesList}/>
-                        <TvShows id={"tv-shows"} movies={moviesList}/>
-                        <RecentlyAdded id={"recently-added"} movies={moviesList}/>
+                        <ContentComponent 
+                        movies={moviesList}
+                        id={"content-page-0"}
+                        title={["top movies","most popular movies","upcoming movies","most watched movies"]}
+                        />
+                        <ContentComponent
+                        movies={moviesList}
+                        id={"content-page-1"}
+                        title={["top tv shows","most popular tv shows","upcoming tv shows","most watched tv shows"]}
+                        />
+
+                        <ContentComponent
+                        movies={moviesList}
+                        id={"content-page-2"}
+                        title={["top recently added","most popular recently added","most watched recently added"]}
+                        />
                     </div>
                 </div>
             </div>

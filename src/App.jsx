@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 import Loader from "./components/loader";
 import NavBar from './components/navBar';
 import Categories  from './pages/categories';
-import Contact from './pages/contact';
+import Subscribe from './pages/subscribe';
 import Footer from './components/footer';
+import Profile from './pages/profile';
+import Login from './pages/login';
 
 
 
@@ -40,7 +42,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/content" element={<Content />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/subscribe" element={<Subscribe />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer/>
     </div>

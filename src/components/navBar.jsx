@@ -5,12 +5,13 @@ import "./css/navBar_style.css"
 import { useState,useEffect } from "react";
 import  gsap  from 'gsap';
 import{profileImg} from "../utils/index.js"
+import { FaUser } from "react-icons/fa6";
 export default function NavBar() {
 
     const [mobileMenu,setMobileMenu]=useState(false);
+    const isLogin=false;//for test 
 
 
-    
 
 
 
@@ -80,16 +81,13 @@ export default function NavBar() {
                             <span className="s2"></span>
                             <span className="s3"></span>
                         </button>
-                    
-
-                    {/*  */}
-                        
-                            
-                           
-                        
-                        <div className="profile-toggle">
-                            <Link to={"/profile"}>
-                                <img src={profileImg} alt="profile"></img> 
+                                            
+                        <div className="profile-toggle text-white">
+                            <Link to={"/profile"} title="profile">
+                            {isLogin&&profileImg?
+                            <img src={profileImg} alt="profile"></img>
+                            :<FaUser/>
+                            } 
                             </Link>
                         </div>
                     </div>
